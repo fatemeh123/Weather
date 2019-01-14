@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+
+
+    <Button
+        android:layout_marginTop="60dp"
+        android:id="@+id/btnFind"
+        android:text="find city"
+        android:textSize="23dp"
+        android:textColor="#fff"
+        android:background="#682d53"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <TextView
+            android:id="@+id/txtCityName"
+            android:text=""
+            android:textSize="23dp"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtTemp"
+            android:text=""
+            android:layout_marginTop="50dp"
+            android:textSize="60dp"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/img_weather"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentEnd="true"/>
+        <TextView
+            android:id="@+id/txt_sky_is"
+            android:text=""
+            android:textSize="23dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnForcast"
+        android:text="forecast"
+        android:textSize="23dp"
+        android:textColor="#fff"
+        android:background="#682d53"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
