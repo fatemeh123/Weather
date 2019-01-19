@@ -128,7 +128,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final String location = preference.readString(CITY_KET , "");
+        final String location ;
+
+
+        if (preference.readString(CITY_KET , "").equals("")){
+            location = preference.readString(CITY_KET , "tehran");
+        }
+        else {
+
+            city = preference.readString(CITY_KET,"");
+             location = preference.readString(CITY_KET , "");
+
+        }
+
 
         // the city name goes to ForecastActivity by clicking btnForecast Button and the ForecastActivity will be started
         btnForecast.setOnClickListener(new View.OnClickListener() {

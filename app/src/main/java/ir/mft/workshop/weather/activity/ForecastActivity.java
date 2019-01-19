@@ -93,7 +93,7 @@ public class ForecastActivity extends AppCompatActivity {
 
     /*
     this method is used for getiing Icons
-
+ */
 
     private int getIcon(String sky){
 
@@ -105,7 +105,7 @@ public class ForecastActivity extends AppCompatActivity {
         }
 
     }
-    */
+
 
 
     /*
