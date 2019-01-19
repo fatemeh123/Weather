@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
         initViews();
 
         if (preference.readString(CITY_KET , "").equals("")){
-            connection("Tehran");  // اگه خالی بود دیفالت تهران رو بگیره
+            connection("Tehran");  //default: tehran
         }
         else {
 
             city = preference.readString(CITY_KET,"");
-            connection(city); // دفعه بعدی باید لندن رو بگیره
+            connection(city); // the city witch User entered
 
         }
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                mDialog.show();
+                mDialog.show(); //for capturing user input --> City
 
             }
         });
@@ -65,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
         initDialog();
 
     }
-
+    /*
+    initializing mdialog and get user input
+    check if it is empty or not
+    */
     private void initDialog(){
 
         Button btndismiss = (Button) mDialog.findViewById(R.id.btn_dismiss);
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
 
                     final String city1= cityEdt.getText().toString();
-                    preference.writeString(CITY_KET , city1);
+                    preference.writeString(CITY_KET , city1);   // save the the city in shared preferences
 
 
                     Toast.makeText(MainActivity.this,"Successfuly saved!",Toast.LENGTH_LONG).show();
@@ -102,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
 
     });
     }
+
+    /*
+    Defining everything which is in main activity
+     */
 
     private void initViews(){
 
@@ -123,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String location = preference.readString(CITY_KET , "");
 
-
+        // the city name goes to ForecastActivity by clicking btnForecast Button and the ForecastActivity will be started
         btnForecast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    /*
+    Checking the connection to the server
+     */
 
     private void connection(String city){
 
@@ -149,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 .getResponse(new OnGetResponse() {
                     @Override
                     public void notConnection(String result) {
-                        // اگر اتصال به اینترنت هم وصل نباشه این متد فراخانی میشه
+                        //  if the internet is not connected this method  recalled
                     }
 
                     @Override
@@ -169,16 +179,19 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
 
-                        // هر اطلاعاتی که از سمت سرور وارد برنامه میشه داخل این result دخیره شده
+                        //  information from the server will be saved in 'resault' String
                     }
 
                     @Override
                     public void nullable(String result) {
-                        // اینجا رو یادم رفته پاک کنم در اصل عملی انجام نمیده, از قبل مونده که کال بک یجور دیگه بود
+                        // this method does nothing! :D
                     }
                 });
     }
 
+    /*
+    capturing the data about the city which user entered on this day using Gson
+     */
     private void initWeatherData(String result){
 
         Gson gson = new Gson();

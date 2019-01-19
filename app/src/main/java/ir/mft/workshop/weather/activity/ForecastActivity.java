@@ -29,9 +29,9 @@ public class ForecastActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();    // vase gereftane esme city
 
-        String city = bundle.getString("city");
+        String city = bundle.getString("city"); // catch the city name using intent from MainActivity
 
-        try {    //alamate back tooye safhe
+        try {    //This is for defining <- (bach sign) in this activity
             new ToolbarHelper(this).Title(city).ButtonHome(true).HomeIcon(R.drawable.icon_arrow_back);
         } catch (FrameworkException e) {
             e.printStackTrace();
@@ -50,7 +50,7 @@ public class ForecastActivity extends AppCompatActivity {
                 .getResponse(new OnGetResponse() {
                     @Override
                     public void notConnection(String result) {
-                        // اگر اتصال به اینترنت هم وصل نباشه این متد فراخانی میشه
+                        // if the internet is not connected this method  recalled
                     }
 
                     @Override
@@ -64,16 +64,19 @@ public class ForecastActivity extends AppCompatActivity {
                             }
                         });
 
-                        // هر اطلاعاتی که از سمت سرور وارد برنامه میشه داخل این result دخیره شده
+                        //  information from the server will be saved in 'resault' String
                     }
 
                     @Override
                     public void nullable(String result) {
-                        // اینجا رو یادم رفته پاک کنم در اصل عملی انجام نمیده, از قبل مونده که کال بک یجور دیگه بود
+                        // this method does nothing! :D
                     }
                 });
     }
 
+    /*
+   capturing the data about the city which user entered ofor 10 days using Gson
+    */
     private void initWeatherData(String result){
 
         Gson gson = new Gson();
@@ -88,6 +91,10 @@ public class ForecastActivity extends AppCompatActivity {
 
     }
 
+    /*
+    this method is used for getiing Icons
+
+
     private int getIcon(String sky){
 
         switch (sky){
@@ -98,6 +105,13 @@ public class ForecastActivity extends AppCompatActivity {
         }
 
     }
+    */
+
+
+    /*
+        this method is used for getiing Icons
+
+     */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
