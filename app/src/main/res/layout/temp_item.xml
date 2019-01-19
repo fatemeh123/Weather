@@ -43,7 +43,7 @@
 
                 <TextView
                     android:id="@+id/txtTemp"
-                    android:text="30 C"
+                    android:text="30 °C"
                     android:textSize="30dp"
                     android:textColor="#fff"
                     android:layout_toEndOf="@+id/txtCity"

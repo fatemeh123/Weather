@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (preference.readString(CITY_KET , "").equals("")){
             connection("Tehran");  //default: tehran
+            preference.writeString(CITY_KET, "tehran");
         }
         else {
 
@@ -216,9 +217,11 @@ public class MainActivity extends AppCompatActivity {
 
             String city = api.getResult().getLocation().getCity();
             String skyText = api.getResult().getCondition().getText();
-
+            if (city.equals("")){
+                city = "tehran" ;
+            }
             txtCityName.setText(city);
-            txtTemp.setText(String.valueOf(temp) + " C");
+            txtTemp.setText(String.valueOf(temp) + " °C");
             txtSky.setText(skyText);
 
             img.setImageDrawable(getResources().getDrawable(WeatherPhoto.getPhotoWeather(skyText)));

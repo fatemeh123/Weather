@@ -54,7 +54,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.MyViewHo
         int templow = Converter.convertToC(low);
 
         holder.txtSky.setText(text);
-        holder.txtTemp.setText(tempHigh + " C _" +templow+" C");
+        holder.txtTemp.setText(tempHigh + " °C _" +templow+" °C");
         holder.txtCityName.setText(day);
         //holder.img.setImageDrawable(R.drawable.background);
         holder.img.setImageDrawable(context.getResources().getDrawable(WeatherPhoto.getIcon(text)));
